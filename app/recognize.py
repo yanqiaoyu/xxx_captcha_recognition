@@ -29,7 +29,7 @@ def NoiseReduction():
     cv2.imwrite(f"./{ImageDir}/{ImageName}", img4)
 
 def Recognition():
-    result = pytesseract.image_to_string(f"./{ImageDir}/{ImageName}", lang="num").replace(' ', '')[0:4]
+    result = pytesseract.image_to_string(f"./{ImageDir}/{ImageName}", lang="ads").replace(' ', '')[0:4]
     print(result)
 
 if __name__ == "__main__":

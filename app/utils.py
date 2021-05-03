@@ -121,7 +121,7 @@ def Recognition():
 
     os.chdir("./"+path_1)
     for count in range(img_cnt):
-        result = pytesseract.image_to_string(f'{count+1}.png', lang="num").replace(' ', '')[0:4]
+        result = pytesseract.image_to_string(f'{count+1}.png', lang="ads").replace(' ', '')[0:4]
         print(result)
     os.chdir("../")  
 
