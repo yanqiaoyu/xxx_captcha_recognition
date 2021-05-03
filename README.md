@@ -6,6 +6,20 @@
 ### 使用方法
 
 #### 1.拉取镜像
+```bash
+docker pull yanqiaoyu/ads_captcha:latest
+```
+
+#### 2.运行
+```bash
+# --rm：器退出时就能够自动清理容器内部的文件系统
+# -v {captcha_image_path}:/app/pic: 把你存放验证码的路径，映射到容器的/app/pic中
+# -n {image_name}: 验证码图片的名字，与你{captcha_image_path}目录下的名字保持一致
+docker run --rm \
+-v {captcha_image_path}:/app/pic \
+ads_captcha \
+-n {image_name}
+```
 
 
 ### 一些问题
