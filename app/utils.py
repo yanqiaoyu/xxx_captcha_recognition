@@ -5,7 +5,7 @@ from PIL import Image
 import shutil
 import pytesseract
 
-URL = 'https://121.12.76.28:60251/dashboard/auth/captcha'
+URL = 'https://***'
 path_1 = "pic"
 img_cnt = 1
 
