@@ -1,0 +1,15 @@
+scikit-build==0.11.1
+certifi==2020.12.5
+chardet==4.0.0
+cmake==3.18.4.post1
+distro==1.5.0
+idna==2.10
+numpy==1.19.5
+#opencv-python==4.1.1.26
+opencv-python==4.1.2.30
+packaging==20.9
+Pillow==8.2.0
+pyparsing==2.4.7
+pytesseract==0.3.7
+requests==2.25.1
+urllib3==1.26.4
