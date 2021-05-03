@@ -21,6 +21,17 @@ ads_captcha \
 -n {image_name}
 ```
 
+### 构建方法
+#### 1.拉取源码
+```shell
+git clone https://github.com/yanqiaoyu/ads_captcha_recognition.git
+```
+
+#### 2.编译
+```shell
+cd ads_captcha_recognition/
+docker build -t ads_captcha .
+```
 
 ### 一些问题
 
