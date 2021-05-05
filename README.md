@@ -22,6 +22,8 @@ ads_captcha \
 ```
 
 #### 3.示例
+![image](https://user-images.githubusercontent.com/19269618/117099972-1e084680-ada5-11eb-9f73-1d3c8fbae083.png)
+
 假设我们保存了一张验证码图片到本地，放在了如下路径中
 ```bash
 [root@localhost ads_captcha_recognition]# pwd
