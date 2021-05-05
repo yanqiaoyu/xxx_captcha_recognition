@@ -12,6 +12,15 @@ docker pull yanqiaoyu/ads_captcha:latest
 ![image](https://user-images.githubusercontent.com/19269618/117099972-1e084680-ada5-11eb-9f73-1d3c8fbae083.png)
 
 #### 2.运行
+假设我们保存了一张验证码图片到本地，放在了如下路径中
+![image](https://user-images.githubusercontent.com/19269618/117100820-590b7980-ada7-11eb-823a-2f08c96072a6.png)
+
+那么我们应该执行如下的指令
+```bash
+docker run --rm -v /tmp:/app/pic yanqiaoyu/ads_captcha -n 1.png
+```
+![image](https://user-images.githubusercontent.com/19269618/117100860-6f193a00-ada7-11eb-9e80-3bf9d30607a3.png)
+
 ```bash
 # --rm：器退出时就能够自动清理容器内部的文件系统
 # -v {captcha_image_path}:/app/pic: 把你存放验证码的路径，映射到容器的/app/pic中
@@ -21,27 +30,6 @@ docker run --rm \
 ads_captcha \
 -n {image_name}
 ```
-
-#### 3.示例
-
-
-假设我们保存了一张验证码图片到本地，放在了如下路径中
-```bash
-[root@localhost ads_captcha_recognition]# pwd
-/home/yqy/venv/ads_captcha_recognition
-```
-把这个图片命名为1.png
-```
-[root@localhost pic]# ls
-1.png
-```
-那么我们应该执行如下的指令
-```bash
-[root@localhost pic]# docker run --rm -v /home/yqy/venv/ads_captcha_recognition/app/pic/:/app/pic ads_captcha -n 1.png
-ZLWU
-[root@localhost pic]#
-```
-
 
 ### 构建方法
 #### 1.拉取源码
