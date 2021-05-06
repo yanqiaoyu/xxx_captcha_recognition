@@ -1,6 +1,6 @@
 # ads_captcha_recognition
 
-针对数XX全部的产品的验证码，用tesseract-ocr训练了一套自己的识别库，并将整套代码docker化，打包成了镜像
+针对数XXX部的产品的验证码，用tesseract-ocr训练了一套自己的识别库，并将整套代码docker化，打包成了镜像
 
 不再需要安装各种库，不再需要自己配置tesseract的训练数据，一条指令完成验证码识别
 
