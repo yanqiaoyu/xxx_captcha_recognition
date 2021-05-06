@@ -1,4 +1,4 @@
-# ads_captcha_recognition
+# xxx_captcha_recognition
 
 针对数XXX部的产品的验证码，用tesseract-ocr训练了一套自己的识别库，并将整套代码docker化，打包成了镜像
 
