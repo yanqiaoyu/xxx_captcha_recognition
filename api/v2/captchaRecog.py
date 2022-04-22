@@ -119,13 +119,23 @@ async def PostRecogReq(
         return result_model
 
     # 6.返回结果
-    result_model = ResponseModel(
-        data={"status_code": 200,
-              "result": recognize_result
-              },
-        meta={"message": "识别成功",
-              "used_train_data": train_data
-              }
-    )
+    if recognize_result:
+        result_model = ResponseModel(
+            data={"status_code": 200,
+                  "result": recognize_result
+                  },
+            meta={"message": "识别成功",
+                  "used_train_data": train_data
+                  }
+        )
 
-    return result_model
+        return result_model
+    else:
+        result_model = ResponseModel(
+            data={"status_code": 500,
+                  "result": recognize_result
+                  },
+            meta={"message": "识别失败",
+                  "used_train_data": train_data
+                  }
+        )
