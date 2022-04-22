@@ -32,5 +32,6 @@ RUN set -ex \
 	&& yum clean all \
 	&& rm -rf /var/cache/yum 
 COPY ./app /app
+COPY ./etc/supervisord.conf /etc/supervisord.conf
 WORKDIR /app
-ENTRYPOINT ["sh", "wait-for", "yToolsBox-db:5432", "--", "supervisord", "-c", "/etc/supervisord.conf"]
+ENTRYPOINT ["supervisord", "-c", "/etc/supervisord.conf"]
