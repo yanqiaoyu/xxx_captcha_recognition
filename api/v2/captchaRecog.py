@@ -2,6 +2,7 @@ from fastapi import APIRouter, File, Form,  UploadFile
 from pydantic import BaseModel
 from utils.recognize import Recognize
 import time
+import os
 
 captchaRecogRouter = APIRouter()
 
@@ -86,14 +87,36 @@ async def PostRecogReq(
     # 毫秒级的时间戳,避免出现图片名重复导致异常
     picture_name = picture.filename.split(
         '.')[0] + str(round(time.time() * 1000)) + '.png'
-    with open(f"{save_picture_path}{picture_name}", 'wb') as f:
-        f.write(picture_contents)
-    f.close()
+
+    try:
+        with open(f"{save_picture_path}{picture_name}", 'wb') as f:
+            f.write(picture_contents)
+        f.close()
+    except Exception as e:
+        result_model = ResponseModel(
+            data={"status_code": 500,
+                  },
+            meta={"message": "验证码图片处理失败",
+                  "error": e
+                  }
+        )
+        return result_model
 
     # 4.进行图像识别, 得到结果
     recognize_result = Recognize(picture_name)
 
     # 5.删除保存的图片
+    try:
+        os.remove(save_picture_path+picture_name)
+    except Exception as e:
+        result_model = ResponseModel(
+            data={"status_code": 500,
+                  },
+            meta={"message": "验证码图片处理失败",
+                  "error": e
+                  }
+        )
+        return result_model
 
     # 6.返回结果
     result_model = ResponseModel(

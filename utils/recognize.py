@@ -13,7 +13,7 @@ def Recognize(name):
     image_name = name
     Binarization()
     NoiseReduction()
-    Recognition()
+    return Recognition()
 
 
 def Binarization():
@@ -36,7 +36,8 @@ def NoiseReduction():
 def Recognition():
     result = pytesseract.image_to_string(
         f"{image_path}{image_name}", lang="ads").replace(' ', '')[0:4]
-    print(result)
+    print("The captcha string is: ", result)
+    return result
 
 
 if __name__ == "__main__":
