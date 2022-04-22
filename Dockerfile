@@ -17,7 +17,7 @@ RUN set -ex \
 	&& sed -i -e '/mirrors.cloud.aliyuncs.com/d' -e '/mirrors.aliyuncs.com/d' /etc/yum.repos.d/CentOS-Base.repo \	
 	# 安装python依赖库
 	&& yum makecache \
-	&& yum install -y  python3 file automake libjpeg-devel libpng-devel libtiff-devel zlib-devel libtool gcc-c++ make libXext libSM libXrender\
+	&& yum install -y  python3 supervisor file automake libjpeg-devel libpng-devel libtiff-devel zlib-devel libtool gcc-c++ make libXext libSM libXrender\
         && cd /leptonica-1.80.0 && ./configure && make && make install \
         && cd /tesseract-4.1.1 && ./autogen.sh && ./configure && make && make install \
 	&& cd .. \
@@ -33,4 +33,4 @@ RUN set -ex \
 	&& rm -rf /var/cache/yum 
 COPY ./app /app
 WORKDIR /app
-ENTRYPOINT python3 run.py $0 $@
+ENTRYPOINT ["sh", "wait-for", "yToolsBox-db:5432", "--", "supervisord", "-c", "/etc/supervisord.conf"]
