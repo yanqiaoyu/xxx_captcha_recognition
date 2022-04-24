@@ -1,6 +1,7 @@
 # xxx_captcha_recognition
 
 考虑到部门内部的自动化框架有所变更,也为了满足华总的需求
+
 ![image](https://user-images.githubusercontent.com/19269618/164951862-7124a4e8-d037-42eb-b44b-8456e1d884e5.png)
 
 在v1版本的基础上,修改了一下源码,将工具做成了微服务,以容器的形式常驻,对外提供服务
