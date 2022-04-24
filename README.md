@@ -1,14 +1,51 @@
 # xxx_captcha_recognition
 
+考虑到部门内部的自动化框架有所变更,也为了满足华总的需求
+![image](https://user-images.githubusercontent.com/19269618/164951862-7124a4e8-d037-42eb-b44b-8456e1d884e5.png)
+
+在v1版本的基础上,修改了一下源码,将工具做成了微服务,以容器的形式常驻,对外提供服务
+
+# v2版本
+
+### 使用方法
+
+#### 1.拉取镜像
+```bash
+docker pull yanqiaoyu/recognize_service:v0.1
+```
+#### 2.运行
+```bash
+docker run -itd --name recognize_service -p 3579:3579 yanqiaoyu/recognize_service:v0.1
+```
+
+### 3.使用
+```python3
+import requests
+
+url = "`Your IP`:3579/api/v2/recognize"
+
+payload={'product_name': 'ads'}
+files=[
+  ('picture',('1.png',open('1.png','rb'),'image/png'))
+]
+
+response = requests.request("POST", url, data=payload, files=files)
+
+print(response.text)
+```
+
+### 4.查看结果
+![image](https://user-images.githubusercontent.com/19269618/164952194-d1759bad-2f8d-484e-802b-a0b3555d0448.png)
+
+
+
+# v1版本(旧)
+
 针对数XXX部的产品的验证码，用tesseract-ocr训练了一套自己的识别库，并将整套代码docker化，打包成了镜像
 
 不再需要安装各种库，不再需要自己配置tesseract的训练数据，一条指令完成验证码识别
 
 注：本次训练数据使用了200张的验证码，识别准确率可达95%+
-
-# v2版本
-
-# v1版本(旧)
 
 ### 使用方法
 
