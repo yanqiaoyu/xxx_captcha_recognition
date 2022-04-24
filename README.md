@@ -19,7 +19,8 @@ docker pull yanqiaoyu/recognize_service:v0.1
 docker run -itd --name recognize_service -p 3579:3579 yanqiaoyu/recognize_service:v0.1
 ```
 
-### 3.使用
+#### 3.使用
+python3使用方法
 ```python3
 import requests
 
@@ -33,6 +34,13 @@ files=[
 response = requests.request("POST", url, data=payload, files=files)
 
 print(response.text)
+```
+
+cURL方法
+```bash
+curl --location --request POST 'Your IP:3579/api/v2/recognize' \
+  --form 'product_name="ads"' \
+  --form 'picture=@"./1.png"'
 ```
 
 ### 4.查看结果
