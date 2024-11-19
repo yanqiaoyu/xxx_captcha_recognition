@@ -1,2 +1,7 @@
 
 *.pyc
+.idea/inspectionProfiles/profiles_settings.xml
+/.idea
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/modules.xml
+.idea/vcs.xml
